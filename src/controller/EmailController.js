@@ -1,3 +1,4 @@
+//Importando as dependências
 const nodemailer = require('nodemailer')
 const {response} = require('express')
 
@@ -24,8 +25,8 @@ class EmailController{
             to: destinyEmail, //Conta de email que vai receber a mensagem
             subject: title, //Título da mensagem
             html: description //Código html que também funciona no lugar da descrição
-        }).then(response => {
-            return res.status(200).json(response)
+        }).then(response => { //Se deu tudo certo
+            return res.status(200).json(response) //mandar a resposta em formato json
         })
     }
 }
