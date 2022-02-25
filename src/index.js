@@ -2,20 +2,14 @@ const express = require("express")
 const cors = require("cors")
 const server = express()
 
+const EmailRouter = require('./routes/EmailRouter')
+
 server.use(cors())
 
 server.use(express.json()) //Recebe informações do tipo json
 
-const routes = require("./routes/routes")
 
-server.use('/', routes)
-
-
-
-
-
-
-
+server.use('/email', EmailRouter)
 
 
 

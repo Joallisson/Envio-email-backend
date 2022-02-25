@@ -1,9 +1,9 @@
 const {response} = require("express")
 
 class EmailController{
-    async send(req, res) {
-        res.send(req.body)
+    sendEmail = (req, res) => {
+        res.send(req.body.api)
     }
 }
 
-module.exports = new EmailController
+module.exports = new EmailController()
