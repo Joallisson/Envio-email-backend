@@ -5,9 +5,10 @@ const {response} = require('express')
 class EmailController{
     async sendEmail(req, res){
         //Pegando os dados enviados
+        const name = req.body.name
         const destinyEmail = req.body.destinyEmail
         const title = req.body.title
-        const description = req.body.description
+        const details = req.body.details
 
         //Criando e definindo o transportador
         const transporter = nodemailer.createTransport({
@@ -21,10 +22,10 @@ class EmailController{
         })
 
         await transporter.sendMail({ //Mandando o email
-            from: `Joallisson  <emaildetestedojnc@gmail.com>`, //Conta de email que está enviando a mensagem
+            from: `${name} <emaildetestedojnc@gmail.com>`, //Conta de email que está enviando a mensagem
             to: destinyEmail, //Conta de email que vai receber a mensagem
             subject: title, //Título da mensagem
-            html: description //Código html que também funciona no lugar da descrição
+            html: details //Código html que também funciona no lugar da descrição
         }).then(response => { //Se deu tudo certo
             return res.status(200).json(response) //mandar a resposta em formato json
         })
