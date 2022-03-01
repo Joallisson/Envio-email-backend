@@ -4,6 +4,10 @@ const {response} = require('express')
 
 class EmailController{
     async sendEmail(req, res){
+        //Credenciais do servidor de email
+        const userEmail = ''; //coloque o email remetente aqui
+        const passwordEmail = ""; //coloque a senha dele aqui
+
         //Pegando os dados enviados
         const name = req.body.name
         const destinyEmail = req.body.destinyEmail
@@ -16,8 +20,8 @@ class EmailController{
             port: 465, //A porta do servidor
             secure: true, //Se tem ou não criptografia SSL ou TLS
             auth:{ //Colocar uma conta de email com a senha
-                user: "emaildetestedojnc@gmail.com", //Email
-                pass: "Servepratudo1324'@" //Senha
+                user: userEmail, //Email
+                pass: passwordEmail //Senha
             }
         })
 
